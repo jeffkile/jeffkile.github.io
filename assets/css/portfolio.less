@@ -1,0 +1,184 @@
+@lightBlue: rgb(156,206,250);
+@lightPurple: rgb(199,144,201);
+@yellow: rgb(255,209,7);
+@brightRed: rgb(254,64,66);
+@blue: rgb(66,163,221);
+@teal: rgb(32,178,170);
+@purple: rgb(128,0,128);
+@orange: rgb(225,102,0);
+@brown: rgb(151, 102, 56);
+@darkYellow: rgb(250, 203, 52);
+@brightOrange: rgb(255, 93, 0);
+@darkBlue: rgb(37, 69, 165);
+@lightGreen: rgb(108, 191, 109);
+@black: rgb(16, 0, 0);
+
+.darkBG {
+  color: white;
+  .container { 
+    a { 
+      color: white;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.lightBG {
+  color: black;
+  .container { 
+    a { 
+      color: black;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  .carousel-control {
+    color: black;
+  }
+}
+
+.idd {
+  background-color: @lightBlue;
+  .lightBG;
+}
+
+.bouncer{
+  background-color: @brightOrange;
+ .darkBG;
+}
+
+.paramount {
+  background-color: @yellow;
+  .lightBG;
+}
+
+.letseat {
+ background-color: @brightRed;
+ .darkBG;
+}
+
+.melodiy {
+  background-color: @blue;
+  .lightBG;
+}
+
+.whereyouat { 
+  background-color: @teal;
+  .darkBG;
+}
+
+.jeffkile { 
+  background-color: @purple;
+  .darkBG;
+}
+
+.fuzzer {
+  background-color: @lightPurple;
+  .lightBG;
+}
+
+.jorarts {
+  /* background-color: rgb(101, 51, 8); */
+  background-color: @brown;
+  .darkBG;
+}
+
+.socalist {
+  /* background-color: rgb(252, 240, 53); */
+  background-color: @darkYellow;
+  .lightBG;
+
+  .img {
+    height: 350px;
+  }
+}
+
+.musicAI {
+  background-color: @brightOrange;
+  .darkBG;
+}
+
+.processing {
+  background-color: @darkBlue;
+  .darkBG;
+}
+
+.startup {
+  background-color: @lightGreen;
+  .darkBG;
+}
+
+.cplusplusart {
+  background-color: @black;
+  .darkBG;
+}
+
+
+/* Images */
+.fullWidth {
+  width:100%;
+}
+
+.maxWidth600 img{
+  max-width:600px;
+}
+
+/* Lists */
+.noDots {
+  list-style: none;
+}
+
+.padList li{
+  padding-bottom: 20px;
+}
+.noLeftPad {
+  padding-left: 0;
+}
+
+.carousel-control.right {
+  left: auto;
+  background: none;
+}
+.carousel-control.left {
+  right: auto;
+  background: none;
+}
+.carousel-control {
+  text-shadow: none;
+}
+
+.carousel li {
+}
+
+/* Video */
+.fill {
+  width: 100%;
+  z-index: -1;
+}
+
+/* Layout */
+@media screen and (min-width: 768px) {
+  .buffer {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  /* Carousel */
+  .vCenterIcon {
+    position: absolute;
+    top: 33%;
+    z-index: 5;
+    display: inline-block
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-control {
+    position:relative;
+  }
+}
+
+

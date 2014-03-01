@@ -1,0 +1,235 @@
+.darkBG {
+  color: white;
+}
+.darkBG .container a {
+  color: white;
+}
+.darkBG .container a:hover {
+  text-decoration: underline;
+}
+.lightBG {
+  color: black;
+}
+.lightBG .container a {
+  color: black;
+}
+.lightBG .container a:hover {
+  text-decoration: underline;
+}
+.lightBG .carousel-control {
+  color: black;
+}
+.idd {
+  background-color: #9ccefa;
+  color: black;
+}
+.idd .container a {
+  color: black;
+}
+.idd .container a:hover {
+  text-decoration: underline;
+}
+.idd .carousel-control {
+  color: black;
+}
+.bouncer {
+  background-color: #ff5d00;
+  color: white;
+}
+.bouncer .container a {
+  color: white;
+}
+.bouncer .container a:hover {
+  text-decoration: underline;
+}
+.paramount {
+  background-color: #ffd107;
+  color: black;
+}
+.paramount .container a {
+  color: black;
+}
+.paramount .container a:hover {
+  text-decoration: underline;
+}
+.paramount .carousel-control {
+  color: black;
+}
+.letseat {
+  background-color: #fe4042;
+  color: white;
+}
+.letseat .container a {
+  color: white;
+}
+.letseat .container a:hover {
+  text-decoration: underline;
+}
+.melodiy {
+  background-color: #42a3dd;
+  color: black;
+}
+.melodiy .container a {
+  color: black;
+}
+.melodiy .container a:hover {
+  text-decoration: underline;
+}
+.melodiy .carousel-control {
+  color: black;
+}
+.whereyouat {
+  background-color: #20b2aa;
+  color: white;
+}
+.whereyouat .container a {
+  color: white;
+}
+.whereyouat .container a:hover {
+  text-decoration: underline;
+}
+.jeffkile {
+  background-color: #800080;
+  color: white;
+}
+.jeffkile .container a {
+  color: white;
+}
+.jeffkile .container a:hover {
+  text-decoration: underline;
+}
+.fuzzer {
+  background-color: #c790c9;
+  color: black;
+}
+.fuzzer .container a {
+  color: black;
+}
+.fuzzer .container a:hover {
+  text-decoration: underline;
+}
+.fuzzer .carousel-control {
+  color: black;
+}
+.jorarts {
+  /* background-color: rgb(101, 51, 8); */
+
+  background-color: #976638;
+  color: white;
+}
+.jorarts .container a {
+  color: white;
+}
+.jorarts .container a:hover {
+  text-decoration: underline;
+}
+.socalist {
+  /* background-color: rgb(252, 240, 53); */
+
+  background-color: #facb34;
+  color: black;
+}
+.socalist .container a {
+  color: black;
+}
+.socalist .container a:hover {
+  text-decoration: underline;
+}
+.socalist .carousel-control {
+  color: black;
+}
+.socalist .img {
+  height: 350px;
+}
+.musicAI {
+  background-color: #ff5d00;
+  color: white;
+}
+.musicAI .container a {
+  color: white;
+}
+.musicAI .container a:hover {
+  text-decoration: underline;
+}
+.processing {
+  background-color: #2545a5;
+  color: white;
+}
+.processing .container a {
+  color: white;
+}
+.processing .container a:hover {
+  text-decoration: underline;
+}
+.startup {
+  background-color: #6cbf6d;
+  color: white;
+}
+.startup .container a {
+  color: white;
+}
+.startup .container a:hover {
+  text-decoration: underline;
+}
+.cplusplusart {
+  background-color: #100000;
+  color: white;
+}
+.cplusplusart .container a {
+  color: white;
+}
+.cplusplusart .container a:hover {
+  text-decoration: underline;
+}
+/* Images */
+.fullWidth {
+  width: 100%;
+}
+.maxWidth600 img {
+  max-width: 600px;
+}
+/* Lists */
+.noDots {
+  list-style: none;
+}
+.padList li {
+  padding-bottom: 20px;
+}
+.noLeftPad {
+  padding-left: 0;
+}
+.carousel-control.right {
+  left: auto;
+  background: none;
+}
+.carousel-control.left {
+  right: auto;
+  background: none;
+}
+.carousel-control {
+  text-shadow: none;
+}
+/* Video */
+.fill {
+  width: 100%;
+  z-index: -1;
+}
+/* Layout */
+@media screen and (min-width: 768px) {
+  .buffer {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  /* Carousel */
+  .vCenterIcon {
+    position: absolute;
+    top: 33%;
+    z-index: 5;
+    display: inline-block;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel-control {
+    position: relative;
+  }
+}
