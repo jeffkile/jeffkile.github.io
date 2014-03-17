@@ -9,7 +9,7 @@ Do things and telling people about them; expanding your "Luck Surface Area".
 
 
 I've always been pretty good at [doing](/portfolio) [things](/music) but pretty terrible at telling
-people about them. The pervasive notion that one should avoid ["shameless self promotion"](http://www.inc.com/kevin-daum/why-you-should-be-a-shameless-self-promoter.html) has prevented me from sharing as much as I should. 
+people about them. The pervasive notion that one should avoid "shameless self promotion" has prevented me from sharing as much as I should. 
 This blog is an attempt
 increase my ["luck surface
 area"](http://www.codusoperandi.com/posts/increasing-your-luck-surface-area),
