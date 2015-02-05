@@ -1,16 +1,3 @@
-.center {
-  margin: 0 auto;
-  display: block;
-}
-.npr {
-    width: 150px;
-}
-.tech_crunch {
-    width: 200px;
-}
-.business_insider {
-    width: 120px;
-}
 .darkBG {
   color: white;
 }
@@ -31,28 +18,6 @@
 }
 .lightBG .carousel-control {
   color: black;
-}
-.brilliant {
-  background-color: #00B776;
-  color: white;
-}
-.brilliant .container a {
-  color: white;
-}
-.brilliant .container a:hover {
-  text-decoration: underline;
-}
-.brilliant .carousel-control {
-  color: white;
-}
-.brilliant .pad-top-big {
-  margin-top: 100px;
-}
-.brilliant .pad-top-small {
-  margin-top: 40px;
-}
-.brilliant .pad-bottom-small {
-  margin-bottom: 20px;
 }
 .idd {
   background-color: #9ccefa;
@@ -76,6 +41,28 @@
 }
 .bouncer .container a:hover {
   text-decoration: underline;
+}
+.brilliant {
+  background-color: #00b776;
+  color: black;
+}
+.brilliant .container a {
+  color: black;
+}
+.brilliant .container a:hover {
+  text-decoration: underline;
+}
+.brilliant .carousel-control {
+  color: black;
+}
+.brilliant .pad-top-big {
+  margin-top: 100px;
+}
+.brilliant .pad-top-small {
+  margin-top: 40px;
+}
+.brilliant .pad-bottom-small {
+  margin-bottom: 20px;
 }
 .paramount {
   background-color: #ffd107;
@@ -148,7 +135,6 @@
 }
 .jorarts {
   /* background-color: rgb(101, 51, 8); */
-
   background-color: #976638;
   color: white;
 }
@@ -160,7 +146,6 @@
 }
 .socalist {
   /* background-color: rgb(252, 240, 53); */
-
   background-color: #facb34;
   color: black;
 }
@@ -267,4 +252,17 @@
   .carousel-control {
     position: relative;
   }
+}
+.center {
+  margin: 0 auto;
+  display: block;
+}
+.npr {
+  width: 150px;
+}
+.tech_crunch {
+  width: 200px;
+}
+.business_insider {
+  width: 120px;
 }
