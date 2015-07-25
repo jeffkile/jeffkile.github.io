@@ -1,18 +1,32 @@
+.jumbotron {
+  overflow: auto;
+}
+
 .quote {
-  color:DimGray;
-  float:left;
-  padding-right:10px;
+  color: DimGray;
+  float: left;
+  padding-right: 10px;
 }
 
 .portrait {
-  width:200px;
-  margin:10px;
-  float:right;
+  width: 50%;
+  margin-left: 20px;
+  margin-right: -20px;
+  float: right;
+  border-radius: 10%;
 }
 
 
 @media screen and (max-width: 768px) {
   .portrait {
-    width:150px;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .portrait {
+    margin-top: -40px;
   }
 }
