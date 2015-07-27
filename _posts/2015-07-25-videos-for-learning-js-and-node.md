@@ -13,8 +13,8 @@ This is a great first video to watch because its both funny and gives you an ins
 many people get tripped up on JavaScript once they start seriously programming in it.
 
 The thing with JavaScript is that it looks a lot like other languages, namely Java, and so lots of
-people who have experience with other languages think they know more about it than they do. Things
-like scoping, objects and functions are examples of things that have very different behavior than
+people who have experience with other languages think they know more about it than they do. Scoping,
+objects and functions are examples of things that have very different behavior than
 in Java but look very similar and so many people incorrectly assume they work in a certain way.
 
 The typing system is another example of a JS language feature that works very differently than one
