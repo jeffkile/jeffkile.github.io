@@ -43,7 +43,7 @@ voice in the JavaScript community. All of his talks are excellent and [his book 
 have](http://www.amazon.com/gp/product/0596517742/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0596517742&linkCode=as2&tag=jefkilsperweb-20&linkId=MHINUPZJY5BSZEP2)
 for any serious JavaScript developer.
 
-One of the things I find most interesting in this talk are the history of the language and how it
+One of the things I find most interesting in this talk is the history of the language and how it
 was created and named. The way he describes prototypical object inheritance as differential
 inheritance (just inheriting the differences) is something I think is helpful in understanding
 JavaScripts inheritance pattern. Lastly I find this video especially enjoyable because 
