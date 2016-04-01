@@ -19,8 +19,8 @@ are interested in learning more.
   we have to keep in our head while solving a problem the harder it will be to solve. So try to break things into parts
   and focus on individual pieces whenever possible.
 
-  - Multi tasking causes stress because and The mental overhead from context switching causes your brain stress and makes
-  you less efficient so try to avoid multi-tasking.
+  - The mental overhead from context switching causes your brain stress and makes you less efficient so try to avoid
+    multi-tasking.
 
   - When groups fragment across too many projects they stop sharing the same context. Just like multi tasking this
     creates extra overhead that causes inefficency and lack of focus when it comes to doing designs and code reviews.
