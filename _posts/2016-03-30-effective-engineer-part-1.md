@@ -116,7 +116,7 @@ are interested in learning more.
       - The faster you can run your tests the more you'll use tests a normal part of your development and the more time
       you'll save by catching errors early
 
-#Don't ignore non-engineering bottlenecks
+## Don't ignore non-engineering bottlenecks
   - In situations where are you depending on other people before your project can advance make sure those people know
   the items you have to do that depend on them getting something done first. This can be done using tools like a Gantt
   chart or Kanban board, or just by having regular standups to share everyones status. Projects often fail from
