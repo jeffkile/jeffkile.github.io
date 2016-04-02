@@ -1,6 +1,7 @@
 ---
 layout: post
 stylesheets: [master, homepage, navigation, blog]
+navLocation: top
 title:  "Videos for an introduction to modern full stack JavaScript web development"
 date:  2015-07-25 
 categories: programming javascript node 
