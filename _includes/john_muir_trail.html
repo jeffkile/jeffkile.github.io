@@ -1,0 +1,648 @@
+<meta charset="utf-8">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<script src="/assets/js/graph-scroll.js"></script>
+
+<style>
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+
+.dot {
+  cursor: pointer;
+}
+
+.stay-on-bottom { 
+  position: fixed; 
+  bottom:0%;
+  width:100%; 
+  background: white;
+}
+
+#scrollContainer {
+  position: relative;
+  overflow: auto;
+}
+
+#sections > div{
+  opacity: .3
+} 
+
+#sections div.graph-scroll-active{
+  opacity: 1;
+}
+
+#graph {
+  background: white;
+}
+
+#graph.graph-scroll-fixed {
+  position: fixed;
+  top: 0px;
+}
+
+#graph.graph-scroll-below {
+  position: absolute;
+  bottom: 0px;
+}
+
+</style>
+
+<div id="scrollContainer">
+  <div id="graph">
+    <svg id="chart"></svg>
+  </div>
+  <div id="sections">
+    <div>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+    bar 
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+    <div>
+    foo 
+    foo 
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+      hello <p>world</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+// Name of location, miles from start, elevation
+var data = [
+  {
+    name: 'Happy Isles',
+    miles: 0,
+    elevation: 4000
+  },
+  {
+    name: 'Little Yosemite Valley',
+    miles: 4,
+    elevation: 6000
+  },
+  {
+    name: 'Half Dome Trail',
+    miles: 5,
+    elevation: 7000
+  },
+  {
+    name: 'Sunrise Camp',
+    miles: 14,
+    elevation: 9200
+  },
+  {
+    name: 'Cathedral Pass',
+    miles: 15.5,
+    elevation: 9700
+  },
+  {
+    name: 'Cathedral Lake',
+    miles: 17.5,
+    elevation: 9500
+  },
+  {
+    name: 'Tuolumne Meadows',
+    miles: 22.5,
+    elevation: 8750
+  },
+  {
+    name: 'Volgesang Pass Trail',
+    miles: 30,
+    elevation: 8900
+  },
+  {
+    name: 'Lyell Fork Bridge',
+    miles: 34,
+    elevation: 9800
+  },
+  {
+    name: 'Donohue Pass',
+    miles: 37,
+    elevation: 11500
+  },
+  {
+    name: 'Rush Creek Trail',
+    miles: 40,
+    elevation: 9800
+  },
+  {
+    name: 'Island Pass',
+    miles: 42,
+    elevation: 10200
+  },
+  {
+    name: 'Thousand Island Lake',
+    miles: 43,
+    elevation: 9900
+  },
+  {
+    name: 'Garnet Lake',
+    miles: 45,
+    elevation: 9800
+  },
+  {
+    name: 'Ediza Lake Trail',
+    miles: 47,
+    elevation: 10000
+  },
+  {
+    name: 'Shadow Creek Bridge',
+    miles: 49,
+    elevation: 8800
+  },
+  {
+    name: 'Rosalie Lake',
+    miles: 50,
+    elevation: 9200
+  },
+  {
+    name: 'Gladys Lake',
+    miles: 51,
+    elevation: 9400
+  },
+  {
+    name: 'Devils Postpile',
+    miles: 56,
+    elevation: 7500
+  },
+  {
+    name: 'Reds Meadow',
+    miles: 57,
+    elevation: 7600
+  },
+  {
+    name: 'Deer Creek',
+    miles: 62.5,
+    elevation: 9200
+  },
+  {
+    name: 'Duck Creek',
+    miles: 67,
+    elevation: 10000
+  },
+  {
+    name: 'Purple Lake',
+    miles: 71,
+    elevation: 9900
+  },
+  {
+    name: 'Lake Virginia',
+    miles: 72,
+    elevation: 10200
+  },
+  {
+    name: 'Cascade Valley Trail',
+    miles: 76,
+    elevation: 9100
+  },
+  {
+    name: 'Silver Pass',
+    miles: 80,
+    elevation: 10900
+  },
+  {
+    name: 'Mono Pass Trail',
+    miles: 85,
+    elevation: 8300
+  },
+  {
+    name: 'Mono Creek Bridge',
+    miles: 87,
+    elevation: 7700
+  },
+  {
+    name: 'Bear Ridge',
+    miles: 91,
+    elevation: 9800
+  },
+  {
+    name: 'Bear Creek Trail',
+    miles: 93,
+    elevation: 8800
+  },
+  {
+    name: 'Marie Lake',
+    miles: 98,
+    elevation: 10500
+  },
+  {
+    name: 'Seldon Pass',
+    miles: 100.5,
+    elevation: 10870
+  },
+  {
+    name: 'Heart Lake',
+    miles: 102,
+    elevation: 10550
+  },
+  {
+    name: 'Muir Trail Ranch',
+    miles: 108,
+    elevation: 7800
+  },
+  {
+    name: 'South Fork San Joaquin Bridge',
+    miles: 111,
+    elevation: 8400
+  },
+  {
+    name: 'Evolution Valley',
+    miles: 115,
+    elevation: 9200
+  },
+  {
+    name: 'McClue Meadow',
+    miles: 116,
+    elevation: 9700
+  },
+  {
+    name: 'Colby Meadow',
+    miles: 118,
+    elevation: 9800
+  },
+  {
+    name: 'Evolution Lake',
+    miles: 121,
+    elevation: 10800
+  },
+  {
+    name: 'Evolution Creek',
+    miles: 125,
+    elevation: 10300
+  },
+  {
+    name: 'Muir Pass',
+    miles: 128,
+    elevation: 11955
+  },
+  {
+    name: 'Bishop Pass Trail',
+    miles: 135,
+    elevation: 8800
+  },
+  {
+    name: 'Palisade Creek',
+    miles: 139.2,
+    elevation: 8000
+  },
+  {
+    name: 'Deer Meadow',
+    miles: 142.7,
+    elevation: 8800
+  },
+  {
+    name: 'Golden Staircase',
+    miles: 144,
+    elevation: 10500
+  },
+  {
+    name: 'Placer Lake',
+    miles: 145.7,
+    elevation: 10650,
+  },
+  {
+    name: 'Mather Pass',
+    miles: 150,
+    elevation: 12080
+  },
+  {
+    name: 'Taboose Pass Trail',
+    miles: 155.1,
+    elevation: 10000
+  },
+  {
+    name: 'Bench Lake Trail',
+    miles: 156.2,
+    elevation: 11000
+  },
+  {
+    name: 'Lake Marjoie',
+    miles: 157.7,
+    elevation: 11200
+  },
+  {
+    name: 'Pinchot Pass',
+    miles: 159.2,
+    elevation: 12100
+  },
+  {
+    name: 'Twin Lakes',
+    miles: 162.3,
+    elevation: 10560
+  },
+  {
+    name: 'South Fork Trail',
+    miles: 166.8,
+    elevation: 8500
+  },
+  {
+    name: 'Rae Lakes',
+    miles: 172.3,
+    elevation: 10500
+  },
+  {
+    name: 'Glen Pass',
+    miles: 175.6,
+    elevation: 11980
+  },
+  {
+    name: 'Kearsage Pass Trail',
+    miles: 177.9,
+    elevation: 10800
+  },
+  {
+    name: 'Bubbs Creek Trail',
+    miles: 180.1,
+    elevation: 9600
+  },
+  {
+    name: 'Center Basin Trail',
+    miles: 183.6,
+    elevation: 10500
+  },
+  {
+    name: 'Forester Pass',
+    miles: 187.1,
+    elevation: 13200
+  },
+  {
+    name: 'Shepherd Pass Trail',
+    miles: 192.1,
+    elevation: 10930
+  },
+  {
+    name: 'Wallace Creek',
+    miles: 199.1,
+    elevation: 10400
+  },
+  {
+    name: 'Crabtree Meadows Ranger Station',
+    miles: 203.6,
+    elevation: 10700
+  },
+  {
+    name: 'Guitar Lake',
+    miles: 205.7,
+    elevation: 11600
+  },
+  {
+    name: 'Mt Whitney Trail',
+    miles: 209.6,
+    elevation: 13500
+  },
+  {
+    name: 'Mt Whitney',
+    miles: 211.9,
+    elevation: 14495
+  },
+  {
+    name: 'Trail Crest',
+    miles: 214.2,
+    elevation: 13600
+  },
+  {
+    name: 'Trail Camp',
+    miles: 216.4,
+    elevation: 12040
+  },
+  {
+    name: 'Outpost Camp',
+    miles: 219,
+    elevation: 10600
+  },
+  {
+    name: 'Lone Pine Lake',
+    miles: 220,
+    elevation: 9960
+  },
+  {
+    name: 'Whitney Portal',
+    miles: 222.4,
+    elevation: 8360
+  },
+ ];
+
+var margin = {left: 5, top: 5};
+var width =  680;
+var height = 250;
+
+// Attach the mouses position to the window for 
+
+var miles = _.map(data, 'miles');
+var elevation = _.map(data, 'elevation');
+
+var x = d3.scale.linear()
+  .range([0, width])
+  .domain([0, d3.max(miles)]);
+var y = d3.scale.linear()
+  .range([height, 0]) // height to 0 because we subtract from the upper right corner for svgs
+  .domain([d3.min(elevation), d3.max(elevation)]);
+
+// Define the line
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.miles); })
+    .y(function(d) { return y(d.elevation); });
+
+// Define the tooltip 
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+var svg = d3.select("#chart")
+    .attr("width", width + margin.left)
+    .attr("height", height + margin.top)
+    .append("g")
+      .attr("transform", 
+            "translate(" + margin.left + "," + margin.top + ")");
+
+  svg.append("path")
+    .attr("class", "line")
+    .attr("d", valueline(data));
+
+// Add the scatterplot
+var updateDots = function(data) {
+  console.log("updateDots", data.length);
+
+  var selection = svg.selectAll(".dot").data(data);
+
+  // Updates existing circles when data changes
+  selection
+    .transition()
+    .duration(750)
+    .attr("fill", function(d) {
+      return d.active ? "red" : "black";
+    })
+    .attr("r", function(d) {
+      return d.active ? 7 : 3;
+    })
+    .attr("opacity", function(d) {
+      return d.active ? 1 : .5;
+    });
+
+  selection.enter().append("circle")
+    .attr("class", "dot")
+    .attr("r", 3)
+    .attr("cx", function(d) { return x(d.miles); })
+    .attr("cy", function(d) { return y(d.elevation); })
+    .on("mouseover", function(d) {
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", .9);
+      tooltip.html(d.name + "<br/>" +
+          d3.format(",.2r")(d.miles) + " miles" + "<br/>" +
+          d3.format(",.2r")(d.elevation) + " feet")
+        .style("left", d3.event.pageX + "px")
+        .style("top", d3.event.pageY + "px")
+    })
+    .on("mouseout", function(d) {
+      tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
+    });
+
+  selection.exit().remove();
+
+
+  return selection;
+}
+
+var dots = updateDots(data);
+
+// Setup active events
+var dispatch = d3.dispatch("activeSection");
+
+dispatch.on('activeSection', function(index) {
+  data = _.map(data, function(d) { 
+    d.active = false;
+    return d;
+  });
+  data[index].active = true;
+  updateDots(data);
+});
+
+// Setup scrolling
+graphScroll()
+    .graph(d3.selectAll('#graph'))
+    .container(d3.select('#scrollContainer'))
+  .sections(d3.selectAll('#sections > div'))
+  .on('active', function(i) {
+    dispatch.activeSection(i);
+    console.log(i + 'th section active');
+  });
+
+</script>
