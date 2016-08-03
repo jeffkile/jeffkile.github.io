@@ -2,9 +2,19 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
-<script src="/assets/js/graph-scroll.js"></script>
 
 <style>
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 60%;
+}
+
+p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 path { 
     stroke: steelblue;
@@ -31,29 +41,34 @@ path {
   cursor: pointer;
 }
 
-.stay-on-bottom { 
-  position: fixed; 
-  bottom:0%;
-  width:100%; 
-  background: white;
-}
-
 #scrollContainer {
   position: relative;
   overflow: auto;
 }
 
+#sections {
+  padding-top: 225px;
+}
+
 #sections > div{
-  opacity: .2
+  opacity: .2;
+  padding-bottom: 10px;
 } 
 
-#sections div.graph-scroll-active{
+#sections div.graph-scroll-active {
   opacity: 1;
+  transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -webkit-transition: opacity .5s ease-in-out;
 }
 
 #graph {
   background: white;
   z-index: 9;
+
+  /* This is so the text below doesn't jump when it switches over to fixed */
+  position: absolute;
+  top: 0px;
 }
 
 #graph.graph-scroll-fixed {
@@ -80,13 +95,9 @@ path {
        with a plastic bottom, oops). Despite the rough start we parked the car in the backpackers lot and made it up
        the steep 2k elevation gain to Little Yosemite Valley pretty quickly. Leaving before the sun was up made the
        hard climb more bearable. Vernal and Nevada were amazing.</p>
-      <img src="yosemite valley"/>
-    </div>
-    <div>
-      <br>
-      <br>
-      <br>
-      <br>
+      <a href="https://flic.kr/p/KEBDD6">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/yosemite_valley.jpg"/>
+      </a>
     </div>
     <div>
       <br>
@@ -98,31 +109,39 @@ path {
       <p>We were so exhausted from waking up early, adjusting to the elevation and the hard morning climb that we
       ended up taking a lunch time nap in a burnt out part of the forest. This was second nature for John the Hot Shot
       fire fighter but it left us both looking like we had been on the trail much longer than one day.</p>
+    </div>
+    <div>
       <p>The bill of John's hat had "STOKED" written on it really big which encouraged a lot of people to stop and talk
-      to us whic was great because we found out that our intended destination Sunrise Meadows was full of misquitos.
+      to us which was great because we found out that our intended destination Sunrise Meadows was full of misquitos.
       So we decided to stay on a bluff near a stream before the final part of the climb into the meadow. We heard
       Clouds Rest is a great place to stop especially if you are doing a trip from Tolumne to the Valley but it
       was too far out of our way on this trip. Weather was perfect all day. </p>
-      <img src="first night camp site"/>
+      <img src="https://s3-us-west-1.amazonaws.com/jmt2016/first_nights_campsite.jpg"/>
     </div>
     <div>
       <h2>Day 2</h2>
       <p>Sunrise Meadow was beautiful but we had to almost run through it because the mosquitos were so bad. I felt bad
       for the people staying at the High Sierra camp.</p>
-      <img src="sunrise meadow"/>
+      <a href="https://flic.kr/p/KJBsNE">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/sunrise_meadow.jpg"/>
+      </a>
     </div>
     <div>
-      <p>We ate lunch overlooking a giant granite valley. Where we made some friends with Martin and Adele from the
+      <p>We ate lunch overlooking a giant granite valley. Where we made some new friends; Martin and Adele from the
       Czech Republic. Martin is the CTO of Social Bakers a social analytics company where Adele also works. We were
       honored to be the first people to find out of their new engagement which happened just days before. They had just
       finished doing the JMT from Whitney to Tolumne and were now going from Yosemite Valley to Lake Tahoe.</p>
-      <img src="john stoked"/>
-      <img src="catedral pass selfie"/>
+      <a href="https://flic.kr/p/JR8krV">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/granite_valley.jpg"/>
+      </a>
     </div>
     <div>
-      <p>Cathedral Lake was spectacular. After enough people calling John "Stoked" it's clear this is his new trail
-      name.</p>
-      <img src="cathedral lake"/>
+      <p>Cathedral Lake was spectacular.</p>
+      <a href="https://flic.kr/p/JR4SHR">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/cathedral_lake.jpg"/>
+      </a>
+      <p>After enough people calling John "Stoked" it's clear this is his new trail name.</p>
+      <img src="https://s3-us-west-1.amazonaws.com/jmt2016/stoked.jpg"/>
     </div>
     <div>
       <p>We made it to Tolumne Meadows despite being confused by the signs which made us think it was at first closer,
@@ -130,6 +149,7 @@ path {
       that says 3.5 miles to the High Sierra camp. The grill closed at 5pm but the store was open until 8pm so we were
       able to get some beers and sausages to cook on the fire at the Backpackers camp. This would also have been a
       great place to resupply had we planned that out ahead of time.</p>
+      <br>
     </div>
     <div>
       <h2>Day 3</h2>
@@ -139,16 +159,23 @@ path {
     </div>
     <div>
       <p>Jumped in the Lyle River on our way to Donahue Pass.</p>
-      <img src="donahue pass with larz"></img>
+      <a href="https://flic.kr/p/JRPj1P">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/lyle_headwaters.jpg"></img>
+      </a>
     </div>
     <div>
-      <p>We camped near the top of the Donahue Pass next to glacier lakes and water falls. Our site overlooked the
-      valley and Lyle River below. Sunset was amazing and there were tons of stars out at night. I think this was the
-      best campsite I've ever had.</p>
+      <p>We camped near the top of the Donahue Pass next to glacier lakes and water falls. Our site sat on the edge of
+      the ridge with a perfect view of Lyle Canyon below. Sunset was amazing and there were tons of stars out at night.
+      I think this was the best campsite I've ever had.</p>
+      <a href="https://flic.kr/p/KCUEQ3">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/donahue_pass.jpg">
+      </a>
       <p>This is also where we met Larz and Steph a couple who we ended up hiking with most of the rest of the
       trail.</p>
-      <img src="donahue pass valley">
-      <img src="donahue pass campsite">
+
+      <a href="https://flic.kr/p/JRD65Q"></a>
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/lyle_canyon.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 4</h2>
@@ -157,15 +184,22 @@ path {
       <br>
     </div>
     <div>
-      <p>Dogs are allowed on the trail from Reds Meadows up to Thousand Island Lakes.</p>
+      <p>We started seeing a lot of dogs on this part of the trail. I guess they are allowed on the trail from Reds
+      Meadows up to Thousand Island Lakes since it's outside of the National Park.</p>
+      <br>
+      <br>
     </div>
     <div>
-      <img src="thousand island lake">
+      <a href="https://flic.kr/p/KKpKEU">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/thousand_island.jpg">
+      </a>
     </div>
     <div>
       <p>We found a perfect campsite on the north shore of Garnette lake under a leaning tree between the lake and the
       trail. We ate lunch and took a nap here.</p>
-      <img src="garnett lake">
+      <a href="https://flic.kr/p/JRDFRo">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/garnet.jpg">
+      </a>
     </div>
     <div>
       <br>
@@ -194,11 +228,15 @@ path {
     <div>
       <h2>Day 6</h2>
       <p>We decided to take a "Zero Day" (trail slang for taking the day off) so that we could get some new supplies in
-      Mammoth. The tram ride up from Reds Meadows cost $7 and takes about 45 minutes. In town I got a new pack (the
-      Osprey 60L to replace the old external frame I was using that was starting to fall apart (John thought Brokepack
-      Mountain was a pretty funny trail name for me, I eventually earned a better one). While in Mammoth we were able
-      to catch the European Soccer Champship game, Portugal won. </p>
-      <img src="osprey pack"><a>https://www.amazon.com/dp/B014EBRG5M/ref=twister_B019UTLLEK?_encoding=UTF8&psc=1</a>
+      Mammoth. The tram ride up from Reds Meadows cost $7 and takes about 45 minutes. In town I got a new pack, the
+      <a
+           href="https://www.amazon.com/gp/product/B014EBQUHC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B014EBQUHC&linkCode=as2&tag=jeffkile-20&linkId=8158cbe6009137b0a27d3af77ded21dc">
+      Osprey Volt 60L</a>, to replace the old external frame I was using that was starting to fall apart (John thought
+    Brokepack Mountain was a pretty funny trail name for me, I eventually earned a better one). While in Mammoth we
+    were able to catch the European Soccer Championship game, Portugal won. </p>
+      <a href="https://www.amazon.com/gp/product/B014EBQUHC/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B014EBQUHC&linkCode=as2&tag=jeffkile-20&linkId=8158cbe6009137b0a27d3af77ded21dc">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/osprey.jpg">
+      </a>
       <p>That night we had a big fire at the backpacking camp where we encoutered our first "Trail Troll" (a term John
       came up with). a guy by the name of "Mover" who didn't seem like he moved very far. From what we could gather he
       just hung out the various backpacking camp living off what he could find in the hiker boxes and whatever weed he
@@ -226,17 +264,26 @@ path {
       <p>We camped at Virgina lake which is one of the most picturesque lakes I've ever seen. The way sunset lit up the
       mountains around the lake was incredible. It started to get cold when the sun goes down since were up above 11k
       feet now.</p>
-      <img src="virgina lake day">
-      <img src="virgina lake sunset">
+      <a href="https://flic.kr/p/KFqdfr">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/virginia_lake.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/KNg7wH">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/virginia_lake_sunset.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 8</h2>
     </div>
     <div>
       We ate lunch on top of Silver Pass with the whole gang. The views were gorgeous.
-      <img src="group shot">
-      <img src="pass 1">
-      <img src="pass 2">
+      <a href="https://flic.kr/p/JRVYdi">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/silver_pass1.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/KKusZ9">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/silver_pass2.jpg">
+      </a>
     </div>
     <div>
       <br>
@@ -268,20 +315,26 @@ path {
     <div>
       <p>We camped with Steph, Larz, Jeff and Dan a little past the Italy Pass Trail junction along the trail next to a
       creek where we went fishing. We caught some small Brook Trout which we released. </p>
-      <img src="fishing photo">
+      <img src="https://s3-us-west-1.amazonaws.com/jmt2016/fishing.jpg">
     </div>
     <div>
       <h2>Day 10</h2>
       <p>Marie lake was gorgeous. We took the flower lined trail along side of it as approached Seldon Pass.</p>
-      <img src="marie lake">
+      <a href="https://flic.kr/p/KD1UKq">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/marie_lake.jpg">
+      </a>
     </div>
     <div>
-      <img src="seldon pass">
+      <a href="https://flic.kr/p/JRWrRK">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/seldon_pass.jpg">
+      </a>
     </div>
     <div>
       <p>Epic inifinity pool lake on the other side of the pass with a stream running up to it that was crystal clear
       and full of trout</p>
-      <img src="infinity lake">
+      <a href="https://flic.kr/p/KFtGTx">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/seldon_lake.jpg">
+      </a>
     </div>
     <div>
       <p>Stopped at Muir Ranch contemplated leaving with Jeffs friend Dan because my feet were hurting too badly to
@@ -303,21 +356,28 @@ path {
       finish the trail and was determined to do so despite any pain in my feet. </p>
     </div>
     <div>
-      <img src="mclure meadow">
-      <img src="mcclue meadow 2">
+      <a href="https://flic.kr/p/JRKJn3">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/mclure_meadow.jpg">
+      </a>
     </div>
     <div>
       <p>Evolution Valley looks directly west making for an incredible sunset that lights up the sky and surrounding
       granite mountains.</p>
-      <img src="sunset">
+      <a href="https://flic.kr/p/KNkmkM">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/colby_meadow_sunset.jpg">
+      </a>
       <p>We camped on a small bluff overlooking Colby Meadow and had a fire.</p>
-      <img src="colby meadow campsite">
+      <a href="https://flic.kr/p/JRXC1v">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/colby_meadow.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 12</h2>
       <p>We did the climb up to Evolution Basin early in the morning. The lakes in the basin were full of perfectly
       clear water that reflected the granite mountains that surrounded them spectacularly.</p>
-      <img src="evolution basin">
+      <a href="https://flic.kr/p/Knd57J">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/evolution_basin.jpg">
+      </a>
     </div>
     <div>
       <br>
@@ -328,24 +388,25 @@ path {
     <div>
       <p>Muir Pass looked like another planet. There's a stone hut at the top that was built by the Sierra Club in
       1930.</p>
-      <img src="muir pass climb">
-      <img src="muir pass hut">
+      <a href="https://flic.kr/p/JRXYra">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/muir_pass.jpg">
+      </a>
     </div>
     <div>
       <p>On the way down there was enough snow for some sledding on our butts and a snowball fight. There hundreds of
       giant tadpoles in the alpine lakes we passed on our way to camp. This is a good sign because we had been hearing
       the alpine toads are endanged due to overstocking of trout which eat the tadpoles. </p>
-      <img src="alpine lake">
     </div>
     <div>
       <p>We camped a little passed Helen Lake at a campsite on the Middle Fork of the Kings River which had a view of a
       waterfall. </p>
-      <img src="middle fork campsite">
     </div>
     <div>
       <h2>Day 13</h2>
       <p>The morning views from camp of the valley below were spectacular.</p>
-      <img src="morning valley">
+      <a href="https://flic.kr/p/KKxizw">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/morning_valley.jpg">
+      </a>
     </div>
     <div>
       <p>We stopped at the ranger station to get some extra bars and stuff from some friendly Canadians we had met who
@@ -354,48 +415,67 @@ path {
     <div>
       <p>The valley leading up to the Golden Staircase is full awesome cascading waterfalls which, on this trip, were
       second in grandeur only to those found in Yosemite Valley itself.</p>
-      <img src="waterfall">
-      <p>Soaked my feet in the creek during lunch. There's nothing more rejuvenating than sticking sore feet in a creek
+      <p>I soaked my feet in the creek during lunch. There's nothing more rejuvenating than sticking sore feet in a creek
       full of fresh snow melt.</p>
+      <a href="https://flic.kr/p/KKxysC">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/valley.jpg">
+      </a>
     </div>
     <div>
       <p>The Golden Staircase had a lot of false peeks that kept tricking us into thinking we were almost at the top.
       But once arrived we knew it was worth it.</p>
-      <img src="valley?">
     </div>
     <div>
       <p>We camped on top of the Golden Staircase next to Place Lake. The moon came out early and was almost full.</p>
-      <img src="placer lake at sunset">
-      <img src="placer lake camp">
+      <a href="https://flic.kr/p/KNmQiZ">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/placer_lake_sunset.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/KFvNui">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/placer_lake_camp.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 14</h2>
       <p>I got up early and made my way to Mather Pass before anyone else was up. The basin on the way to the pass was
       especially beautiful as the mountains reflected perfectly off the still wildflower lined lakes at this early
       hour.</p>
-      <img src="placer lake morning">
+      <a href="https://flic.kr/p/KNn8TP">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/placer_lake_morning.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/JRN8Vb">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/placer_lake_path.jpg">
+      </a>
     </div>
     <div>
+      <a href="https://flic.kr/p/JRNnTm">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/mather_pass.jpg">
+      </a>
       <p>The other side of the pass was a very high desert that dropped down into a lush valley. The trail had us hike out
       of the valley as soon as we got down into it.</p>
+      <a href="https://flic.kr/p/KNnKqv">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/mather_pass_south.jpg">
+      </a>
     </div>
     <div>
       <p>We camped ext to Lake Marjorie which is the bluest lake I've ever seen. We had a drum circle with some new
       friends Ross and Emma (aka Ross-ta-far-hike and Purple Haze) we met along the trail. Behind the lake is a huge
       red iron mountain we will pass tomorrow. We heard a rocks slide before bed that lasted for what seemed like
       minutes and echoed off the mountains all around us.</p>
-      <img src="lake marjorie">
+      <a href="https://flic.kr/p/KNnMmz">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/lake_marjorie.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 15</h2>
       <p>Woke up early and did Pinchot Pass.</p>
     </div>
     <div>
-      <img src="twin lakes">
+      <br>
+      <br>
     </div>
     <div>
-      <br>
-      <br>
       <br>
       <br>
     </div>
@@ -405,18 +485,29 @@ path {
       running through them of iron, granite and what we think might be limestone that gives it this cool red grey and
       white pattern. Full moon tonight. It's the brightest I've ever seen it. It hurts your eyes to look at it its so
       bright. </p>
-      <img src="rae lakes1">
-      <img src="rae lakes2">
-      <img src="rae lakes3">
+      <a href="https://flic.kr/p/KKyZvb">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/rae_lakes1.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/JS1kTK">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/rae_lakes2.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 16</h2>
+      <a href="https://flic.kr/p/JRNRUb">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/rae_lakes3.jpg">
+      </a>
       <p>The views of Rae Lakes as we went up Glen Pass were amazing. These lakes were one of my favorite places on
       this trip and someplace I definitely hope to return to.</p>
-      <img src="rae lakes from above">
+      <a href="https://flic.kr/p/KNoBBx">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/rae_lakes_above.jpg">
+      </a>
     </div>
     <div>
-      <img src="blue lake">
+      <a href="https://flic.kr/p/JS1Rvv">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/blue_lake.jpg">
+      </a>
     </div>
     <div>
       <br>
@@ -428,26 +519,41 @@ path {
       <p>We camped up at 11300 feet in a granite bowl before the pass. There was an epic waterfall that spilled out of
       the sheer granite wall into a stream lined with some of the only greenery around. We could hear this waterfall
       roaring through the basin from our campsite miles away which made me feel like we were camping in Mordor.</p>
-      <img src="forester campsite">
+      <a href="https://flic.kr/p/KngXR9">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/forester_camp.jpg">
+      </a>
     </div>
     <div>
       <h2>Day 17</h2>
       <p>Forester pass is the second highest climb on the trail, second only to Whitney. It certainly feels like a
       strange world at that elevation. The pass itself wasn't as hard as it was built up to be, we had been hearing
       people say it was the hardest pass of the trip.</p>
-      <img src="forester pass">
+      <a href="https://flic.kr/p/KD7hfE">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/forester_pass.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/KngUUs">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/forester_pass_south.jpg">
+      </a>
     </div>
     <div>
       <p>I listend to "Do Androids Dream of Electric Sheep" by Philip K Dick on the way down through what felt like an
       alien world at times. Lots of granite high desert and sparse trees at first until we dove into the forest of
       Sequoia trees.</p>
-      <img src="cloud">
+      <a href="https://flic.kr/p/KNpSDK">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/cloud.jpg">
+      </a>
     </div>
     <div>
       <p>There was a beautiful mesa on the way to Crabtree Meadows with 360 degree views and lots of marmots just
       asking to be photographed.</p>
-      <img src="marmot">
-      <img src="fallen tree panorama">
+      <a href="https://flic.kr/p/KNpTB6">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/marmot.jpg">
+      </a>
+      <br>
+      <a href="https://flic.kr/p/KNpWSp">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/fallen_tree.jpg">
+      </a>
     </div>
     <div>
       <p>We did 16.6 miles total to get to Crabtree Meadows Ranger station which included the climb over Forester Pass.
@@ -460,20 +566,29 @@ path {
       <p>We had heard many people wanting to get up to Mt Whitney for sunrise but we decided to buck the trend and do
       sunset instead. Which meant we could get a late start and do a late lunch at Guitar Lake while we waited for the
       heat of the day to die down.</p>
-      <img src="guitar lake">
+      <img src="https://s3-us-west-1.amazonaws.com/jmt2016/guitar_lake.jpg">
     </div>
     <div>
       <p>By this point in the trip my muscles had had so much conditioning that the climb up to Mt Whitney was
       physically a peace of cake. However the infection in my feet made a wrongly placed step extremely painful.</p>
-      <img src="up to whitney">
+      <a href="https://flic.kr/p/KNqBxF">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/whitney_trail.jpg">
+      </a>
     </div>
     <div>
       <p>Our decision to watch sunset turned out to be a good one. We had the whole summit to ourselves to watch the
       most spectacular 360 degree sunset I have ever seen. We left most of our gear at the cutoff for the climb up but
       we bought the Jet Boil so we were able to make tea at the top which was as it started getting cold as the sun
       went down.</p>
-      <img src="whitney summit 1">
-      <img src="whitney summit 2">
+      <a href="https://flic.kr/p/KniM5L">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/whitney_me.jpg">
+      </a>
+      <br>
+      <img src="https://s3-us-west-1.amazonaws.com/jmt2016/whitney_group.jpg">
+      <br>
+      <a href="https://flic.kr/p/KKBYsU">
+        <img src="https://s3-us-west-1.amazonaws.com/jmt2016/whitney_sunset.jpg">
+      </a>
       <p>We left before it was completely dark but still much of our hike down was using headlamps. This wasn't too bad
       and we actually passed a number of people on their way up for sunrise the next day. As an aside someone we talked
       to later said sunrise was so crowded that people were stepping on his sleeping bag while he was trying to sleep
@@ -506,491 +621,527 @@ path {
       <br>
     </div>
   </div>
-  <div id="container2">
-    <div>
-      <h2>Final Thoughts</h2>
-    </div>
+</div>
+<div id="container2">
+  <div>
+    <h2>Final Thoughts</h2>
+    <p>Many people say they have a spiritual epiphany while hiking the JMT and I can see why. Here's mine; As much as I
+    believe in technology and the ability of man to create great things, given all of man kind for all of human
+    existence we could never create something as beautiful and perfectly balanced as the Sierra Nevada. For this reason
+    hiking the JMT is like being in the presence of a perfection created by something greater than we could ever
+    imagine. Some may call this God others the laws of nature, whatever we call it is real and exists in the Sierra
+    Nevada.</p>
+    <p>This was one of the hardest, most painful, most fun and most rewarding things I have ever done. </p>
+  </div>
+  <div>
+    <h2>Thanks</h2>
+    <p>Thanks to everyone we met out on the trail I hope some of you will become life long friends as we adventure
+    together more in the future. Thanks for everyone that helped take care of me and put up with my injuries on the
+    trail and after, especially my parents. </p>
+  </div>
+  <div>
+    <h2>Addendum</h2>
+    <p>I've had a number of people ask me two questions since finishing this. 1. Do I still have my foot? and 2. What
+    would I have done differently. Let me address those here.</p>
+    <p>First yes my foot made a full recovery but only after a 4 day stay in the hospital and about two weeks of IV
+    antibiotics. It turned out I did have a very serious Staph infection that I only made worse by walking on it. I
+    should have brought extra band aids and wound cleaning supplies as well as possibly antibiotics. But once I had it
+    there was really only one way out that I knew of except for in a helicopter which I may have had to do if I was
+    another day away from the exit with how bad my foot got. </p>
+    <p>So what would I have done differently? Well a lot of things, truth be told there was embaressingly little
+    planning that went into this trip. Looking back on it I would have taken more rest days and taken advantage of the
+    resupply points in Tolumne, Reds Meadows, VVR and MTR so that I could have carried less weight especially in the
+    beginning. I probably would have done less miles too so that I had more time to spend at each of the campsites.
+    Most importantly aside from the first aid stuff I would have gotten new shoes and insoles and broken them in ahead
+    of time with some training backpack trips.</p>
   </div>
 </div>
 
 
+<script src="/assets/js/jquery-1.11.0.min.js"></script>
+<script src="/assets/js/graph-scroll.js"></script>
 <script>
+// Once all the images have loaded
+$(window).bind("load", function() {
+  console.log("done loading");
 
-// Name of location, miles from start, elevation
-var data = [
-  {
-    name: 'Happy Isles',
-    miles: 0,
-    elevation: 4000
-  },
-  {
-    name: 'Little Yosemite Valley',
-    miles: 4,
-    elevation: 6000
-  },
-  {
-    name: 'Half Dome Trail',
-    miles: 5,
-    elevation: 7000
-  },
-  {
-    name: 'First Nights Campsite',
-    miles: 12,
-    elevation: 8700
-  },
-  {
-    name: 'Sunrise Camp',
-    miles: 14,
-    elevation: 9200
-  },
-  {
-    name: 'Cathedral Pass',
-    miles: 15.5,
-    elevation: 9700
-  },
-  {
-    name: 'Cathedral Lake',
-    miles: 17.5,
-    elevation: 9500
-  },
-  {
-    name: 'Tuolumne Meadows',
-    miles: 22.5,
-    elevation: 8750
-  },
-  {
-    name: 'Volgesang Pass Trail',
-    miles: 30,
-    elevation: 8900
-  },
-  {
-    name: 'Lyell Fork Bridge',
-    miles: 34,
-    elevation: 9800
-  },
-  {
-    name: 'Donohue Pass',
-    miles: 37,
-    elevation: 11500
-  },
-  {
-    name: 'Rush Creek Trail',
-    miles: 40,
-    elevation: 9800
-  },
-  {
-    name: 'Island Pass',
-    miles: 42,
-    elevation: 10200
-  },
-  {
-    name: 'Thousand Island Lake',
-    miles: 43,
-    elevation: 9900
-  },
-  {
-    name: 'Garnet Lake',
-    miles: 45,
-    elevation: 9800
-  },
-  {
-    name: 'Ediza Lake Trail',
-    miles: 47,
-    elevation: 10000
-  },
-  {
-    name: 'Shadow Creek Bridge',
-    miles: 49,
-    elevation: 8800
-  },
-  {
-    name: 'Rosalie Lake',
-    miles: 50,
-    elevation: 9200
-  },
-  {
-    name: 'Gladys Lake',
-    miles: 51,
-    elevation: 9400
-  },
-  {
-    name: 'Devils Postpile',
-    miles: 56,
-    elevation: 7500
-  },
-  {
-    name: 'Reds Meadow',
-    miles: 57,
-    elevation: 7600
-  },
-  {
-    name: 'Deer Creek',
-    miles: 62.5,
-    elevation: 9200
-  },
-  {
-    name: 'Duck Creek',
-    miles: 67,
-    elevation: 10000
-  },
-  {
-    name: 'Purple Lake',
-    miles: 71,
-    elevation: 9900
-  },
-  {
-    name: 'Lake Virginia',
-    miles: 72,
-    elevation: 10200
-  },
-  {
-    name: 'Cascade Valley Trail',
-    miles: 76,
-    elevation: 9100
-  },
-  {
-    name: 'Silver Pass',
-    miles: 80,
-    elevation: 10900
-  },
-  {
-    name: 'Mono Pass Trail',
-    miles: 85,
-    elevation: 8300
-  },
-  {
-    name: 'Mono Creek Bridge',
-    miles: 87,
-    elevation: 7700
-  },
-  {
-    name: 'Bear Ridge',
-    miles: 91,
-    elevation: 9800
-  },
-  {
-    name: 'Bear Creek Trail',
-    miles: 93,
-    elevation: 8800
-  },
-  {
-    name: 'Italy Pass Trail',
-    miles: 95.5,
-    elevation: 9250
-  },
-  {
-    name: 'Marie Lake',
-    miles: 98,
-    elevation: 10500
-  },
-  {
-    name: 'Seldon Pass',
-    miles: 100.5,
-    elevation: 10870
-  },
-  {
-    name: 'Heart Lake',
-    miles: 102,
-    elevation: 10550
-  },
-  {
-    name: 'Muir Trail Ranch',
-    miles: 108,
-    elevation: 7800
-  },
-  {
-    name: 'South Fork San Joaquin Bridge',
-    miles: 111,
-    elevation: 8400
-  },
-  {
-    name: 'Evolution Valley',
-    miles: 115,
-    elevation: 9200
-  },
-  {
-    name: 'McClue Meadow',
-    miles: 116,
-    elevation: 9700
-  },
-  {
-    name: 'Colby Meadow',
-    miles: 118,
-    elevation: 9800
-  },
-  {
-    name: 'Evolution Lake',
-    miles: 121,
-    elevation: 10800
-  },
-  {
-    name: 'Evolution Creek',
-    miles: 125,
-    elevation: 10300
-  },
-  {
-    name: 'Muir Pass',
-    miles: 128,
-    elevation: 11955
-  },
-  {
-    name: 'Helen Lake',
-    miles: 129,
-    elevation: 11595
-  },
-  {
-    name: 'Middle Fork Kings River Campsite',
-    miles: 131,
-    elevation: 10400
-  },
-  {
-    name: 'Bishop Pass Trail',
-    miles: 135,
-    elevation: 8800
-  },
-  {
-    name: 'Palisade Creek',
-    miles: 139.2,
-    elevation: 8000
-  },
-  {
-    name: 'Deer Meadow',
-    miles: 142.7,
-    elevation: 8800
-  },
-  {
-    name: 'Golden Staircase',
-    miles: 144,
-    elevation: 10500
-  },
-  {
-    name: 'Placer Lake',
-    miles: 145.7,
-    elevation: 10650,
-  },
-  {
-    name: 'Mather Pass',
-    miles: 150,
-    elevation: 12080
-  },
-  {
-    name: 'Taboose Pass Trail',
-    miles: 155.1,
-    elevation: 10000
-  },
-  {
-    name: 'Lake Marjoie',
-    miles: 157.7,
-    elevation: 11200
-  },
-  {
-    name: 'Pinchot Pass',
-    miles: 159.2,
-    elevation: 12100
-  },
-  {
-    name: 'Twin Lakes',
-    miles: 162.3,
-    elevation: 10560
-  },
-  {
-    name: 'South Fork Trail',
-    miles: 166.8,
-    elevation: 8500
-  },
-  {
-    name: 'Rae Lakes',
-    miles: 172.3,
-    elevation: 10500
-  },
-  {
-    name: 'Glen Pass',
-    miles: 175.6,
-    elevation: 11980
-  },
-  {
-    name: 'Kearsage Pass Trail',
-    miles: 177.9,
-    elevation: 10800
-  },
-  {
-    name: 'Bubbs Creek Trail',
-    miles: 180.1,
-    elevation: 9600
-  },
-  {
-    name: 'Forester Pass Camp',
-    miles: 185.5,
-    elevation: 11300
-  },
-  {
-    name: 'Forester Pass',
-    miles: 187.1,
-    elevation: 13200
-  },
-  {
-    name: 'Shepherd Pass Trail',
-    miles: 192.1,
-    elevation: 10930
-  },
-  {
-    name: 'Wallace Creek',
-    miles: 199.1,
-    elevation: 10400
-  },
-  {
-    name: 'Crabtree Meadows Ranger Station',
-    miles: 203.6,
-    elevation: 10700
-  },
-  {
-    name: 'Guitar Lake',
-    miles: 205.7,
-    elevation: 11600
-  },
-  {
-    name: 'Mt Whitney Trail',
-    miles: 209.6,
-    elevation: 13500
-  },
-  {
-    name: 'Mt Whitney',
-    miles: 211.9,
-    elevation: 14495
-  },
-  {
-    name: 'Trail Crest',
-    miles: 214.2,
-    elevation: 13600
-  },
-  {
-    name: 'Trail Camp',
-    miles: 216.4,
-    elevation: 12040
-  },
-  {
-    name: 'Outpost Camp',
-    miles: 219,
-    elevation: 10600
-  },
-  {
-    name: 'Lone Pine Lake',
-    miles: 220,
-    elevation: 9960
-  },
-  {
-    name: 'Whitney Portal',
-    miles: 222.4,
-    elevation: 8360
-  },
- ];
+  // Name of location, miles from start, elevation
+  var data = [
+    {
+      name: 'Happy Isles',
+      miles: 0,
+      elevation: 4000
+    },
+    {
+      name: 'Little Yosemite Valley',
+      miles: 4,
+      elevation: 6000
+    },
+    {
+      name: 'Half Dome Trail',
+      miles: 5,
+      elevation: 7000
+    },
+    {
+      name: 'First Nights Campsite',
+      miles: 12,
+      elevation: 8700
+    },
+    {
+      name: 'Sunrise Camp',
+      miles: 14,
+      elevation: 9200
+    },
+    {
+      name: 'Cathedral Pass',
+      miles: 15.5,
+      elevation: 9700
+    },
+    {
+      name: 'Cathedral Lake',
+      miles: 17.5,
+      elevation: 9500
+    },
+    {
+      name: 'Tuolumne Meadows',
+      miles: 22.5,
+      elevation: 8750
+    },
+    {
+      name: 'Volgesang Pass Trail',
+      miles: 30,
+      elevation: 8900
+    },
+    {
+      name: 'Lyell Fork Bridge',
+      miles: 34,
+      elevation: 9800
+    },
+    {
+      name: 'Donohue Pass',
+      miles: 37,
+      elevation: 11500
+    },
+    {
+      name: 'Rush Creek Trail',
+      miles: 40,
+      elevation: 9800
+    },
+    {
+      name: 'Island Pass',
+      miles: 42,
+      elevation: 10200
+    },
+    {
+      name: 'Thousand Island Lake',
+      miles: 43,
+      elevation: 9900
+    },
+    {
+      name: 'Garnet Lake',
+      miles: 45,
+      elevation: 9800
+    },
+    {
+      name: 'Ediza Lake Trail',
+      miles: 47,
+      elevation: 10000
+    },
+    {
+      name: 'Shadow Creek Bridge',
+      miles: 49,
+      elevation: 8800
+    },
+    {
+      name: 'Rosalie Lake',
+      miles: 50,
+      elevation: 9200
+    },
+    {
+      name: 'Gladys Lake',
+      miles: 51,
+      elevation: 9400
+    },
+    {
+      name: 'Devils Postpile',
+      miles: 56,
+      elevation: 7500
+    },
+    {
+      name: 'Reds Meadow',
+      miles: 57,
+      elevation: 7600
+    },
+    {
+      name: 'Deer Creek',
+      miles: 62.5,
+      elevation: 9200
+    },
+    {
+      name: 'Duck Creek',
+      miles: 67,
+      elevation: 10000
+    },
+    {
+      name: 'Purple Lake',
+      miles: 71,
+      elevation: 9900
+    },
+    {
+      name: 'Lake Virginia',
+      miles: 72,
+      elevation: 10200
+    },
+    {
+      name: 'Cascade Valley Trail',
+      miles: 76,
+      elevation: 9100
+    },
+    {
+      name: 'Silver Pass',
+      miles: 80,
+      elevation: 10900
+    },
+    {
+      name: 'Mono Pass Trail',
+      miles: 85,
+      elevation: 8300
+    },
+    {
+      name: 'Mono Creek Bridge',
+      miles: 87,
+      elevation: 7700
+    },
+    {
+      name: 'Bear Ridge',
+      miles: 91,
+      elevation: 9800
+    },
+    {
+      name: 'Bear Creek Trail',
+      miles: 93,
+      elevation: 8800
+    },
+    {
+      name: 'Italy Pass Trail',
+      miles: 95.5,
+      elevation: 9250
+    },
+    {
+      name: 'Marie Lake',
+      miles: 98,
+      elevation: 10500
+    },
+    {
+      name: 'Seldon Pass',
+      miles: 100.5,
+      elevation: 10870
+    },
+    {
+      name: 'Heart Lake',
+      miles: 102,
+      elevation: 10550
+    },
+    {
+      name: 'Muir Trail Ranch',
+      miles: 108,
+      elevation: 7800
+    },
+    {
+      name: 'South Fork San Joaquin Bridge',
+      miles: 111,
+      elevation: 8400
+    },
+    {
+      name: 'Evolution Valley',
+      miles: 115,
+      elevation: 9200
+    },
+    {
+      name: 'McClue Meadow',
+      miles: 116,
+      elevation: 9700
+    },
+    {
+      name: 'Colby Meadow',
+      miles: 118,
+      elevation: 9800
+    },
+    {
+      name: 'Evolution Lake',
+      miles: 121,
+      elevation: 10800
+    },
+    {
+      name: 'Evolution Creek',
+      miles: 125,
+      elevation: 10300
+    },
+    {
+      name: 'Muir Pass',
+      miles: 128,
+      elevation: 11955
+    },
+    {
+      name: 'Helen Lake',
+      miles: 129,
+      elevation: 11595
+    },
+    {
+      name: 'Middle Fork Kings River Campsite',
+      miles: 131,
+      elevation: 10400
+    },
+    {
+      name: 'Bishop Pass Trail',
+      miles: 135,
+      elevation: 8800
+    },
+    {
+      name: 'Palisade Creek',
+      miles: 139.2,
+      elevation: 8000
+    },
+    {
+      name: 'Deer Meadow',
+      miles: 142.7,
+      elevation: 8800
+    },
+    {
+      name: 'Golden Staircase',
+      miles: 144,
+      elevation: 10500
+    },
+    {
+      name: 'Placer Lake',
+      miles: 145.7,
+      elevation: 10650,
+    },
+    {
+      name: 'Mather Pass',
+      miles: 150,
+      elevation: 12080
+    },
+    {
+      name: 'Taboose Pass Trail',
+      miles: 155.1,
+      elevation: 10000
+    },
+    {
+      name: 'Lake Marjoie',
+      miles: 157.7,
+      elevation: 11200
+    },
+    {
+      name: 'Pinchot Pass',
+      miles: 159.2,
+      elevation: 12100
+    },
+    {
+      name: 'Twin Lakes',
+      miles: 162.3,
+      elevation: 10560
+    },
+    {
+      name: 'South Fork Trail',
+      miles: 166.8,
+      elevation: 8500
+    },
+    {
+      name: 'Rae Lakes',
+      miles: 172.3,
+      elevation: 10500
+    },
+    {
+      name: 'Glen Pass',
+      miles: 175.6,
+      elevation: 11980
+    },
+    {
+      name: 'Kearsage Pass Trail',
+      miles: 177.9,
+      elevation: 10800
+    },
+    {
+      name: 'Bubbs Creek Trail',
+      miles: 180.1,
+      elevation: 9600
+    },
+    {
+      name: 'Forester Pass Camp',
+      miles: 185.5,
+      elevation: 11300
+    },
+    {
+      name: 'Forester Pass',
+      miles: 187.1,
+      elevation: 13200
+    },
+    {
+      name: 'Shepherd Pass Trail',
+      miles: 192.1,
+      elevation: 10930
+    },
+    {
+      name: 'Wallace Creek',
+      miles: 199.1,
+      elevation: 10400
+    },
+    {
+      name: 'Crabtree Meadows Ranger Station',
+      miles: 203.6,
+      elevation: 10700
+    },
+    {
+      name: 'Guitar Lake',
+      miles: 205.7,
+      elevation: 11600
+    },
+    {
+      name: 'Mt Whitney Trail',
+      miles: 209.6,
+      elevation: 13500
+    },
+    {
+      name: 'Mt Whitney',
+      miles: 211.9,
+      elevation: 14495
+    },
+    {
+      name: 'Trail Crest',
+      miles: 214.2,
+      elevation: 13600
+    },
+    {
+      name: 'Trail Camp',
+      miles: 216.4,
+      elevation: 12040
+    },
+    {
+      name: 'Outpost Camp',
+      miles: 219,
+      elevation: 10600
+    },
+    {
+      name: 'Lone Pine Lake',
+      miles: 220,
+      elevation: 9960
+    },
+    {
+      name: 'Whitney Portal',
+      miles: 222.4,
+      elevation: 8360
+    },
+  ];
 
-var margin = {left: 5, top: 5};
-var width =  680;
-var height = 250;
+  var margin = {left: 5, top: 5};
+  var width =  document.getElementById("scrollContainer").offsetWidth;
+  var height = 220;
 
-// Attach the mouses position to the window for 
+  // Attach the mouses position to the window for 
 
-var miles = _.map(data, 'miles');
-var elevation = _.map(data, 'elevation');
+  var miles = _.map(data, 'miles');
+  var elevation = _.map(data, 'elevation');
 
-var x = d3.scale.linear()
-  .range([0, width])
-  .domain([0, d3.max(miles)]);
-var y = d3.scale.linear()
-  .range([height, 0]) // height to 0 because we subtract from the upper right corner for svgs
-  .domain([d3.min(elevation), d3.max(elevation)]);
+  var x = d3.scale.linear()
+    .range([0, width])
+    .domain([0, d3.max(miles)]);
+  var y = d3.scale.linear()
+    .range([height, 0]) // height to 0 because we subtract from the upper right corner for svgs
+    .domain([d3.min(elevation), d3.max(elevation)]);
 
-// Define the line
-var valueline = d3.svg.line()
-    .x(function(d) { return x(d.miles); })
-    .y(function(d) { return y(d.elevation); });
+  // Define the line
+  var valueline = d3.svg.line()
+      .x(function(d) { return x(d.miles); })
+      .y(function(d) { return y(d.elevation); });
 
-// Define the tooltip 
-var tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+  // Define the tooltip 
+  var tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
-var svg = d3.select("#chart")
-    .attr("width", width + margin.left)
-    .attr("height", height + margin.top)
-    .append("g")
-      .attr("transform", 
-            "translate(" + margin.left + "," + margin.top + ")");
+  var svg = d3.select("#chart")
+      .attr("width", width + margin.left)
+      .attr("height", height + margin.top)
+      .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
 
-  svg.append("path")
-    .attr("class", "line")
-    .attr("d", valueline(data));
+    svg.append("path")
+      .attr("class", "line")
+      .attr("d", valueline(data));
 
-// Add the scatterplot
-var updateDots = function(data) {
-  console.log("updateDots", data.length);
+  // Add the scatterplot
+  var updateDots = function(data) {
+    console.log("updateDots", data.length);
 
-  var selection = svg.selectAll(".dot").data(data);
+    var selection = svg.selectAll(".dot").data(data);
 
-  // Updates existing circles when data changes
-  selection
-    .transition()
-    .duration(750)
-    .attr("fill", function(d) {
-      return d.active ? "red" : "black";
-    })
-    .attr("r", function(d) {
-      return d.active ? 7 : 3;
-    })
-    .attr("opacity", function(d) {
-      return d.active ? 1 : .5;
+    // Updates existing circles when data changes
+    selection
+      .transition()
+      .duration(750)
+      .attr("fill", function(d) {
+        return d.active ? "red" : "black";
+      })
+      .attr("r", function(d) {
+        return d.active ? 7 : 3;
+      })
+      .attr("opacity", function(d) {
+        return d.active ? 1 : .5;
+      });
+
+    selection.enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 3)
+      .attr("cx", function(d) { return x(d.miles); })
+      .attr("cy", function(d) { return y(d.elevation); })
+      .on("mouseover", function(d) {
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+        tooltip.html(d.name + "<br/>" +
+            d3.format(",.2r")(d.miles) + " miles" + "<br/>" +
+            d3.format(",.2r")(d.elevation) + " feet")
+          .style("left", d3.event.pageX + "px")
+          .style("top", d3.event.pageY + "px")
+      })
+      .on("mouseout", function(d) {
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
+      });
+
+    selection.exit().remove();
+
+
+    return selection;
+  }
+
+  var dots = updateDots(data);
+
+  // Setup active events
+  var dispatch = d3.dispatch("activeSection");
+
+  dispatch.on('activeSection', function(index) {
+    data = _.map(data, function(d) { 
+      d.active = false;
+      return d;
     });
-
-  selection.enter().append("circle")
-    .attr("class", "dot")
-    .attr("r", 3)
-    .attr("cx", function(d) { return x(d.miles); })
-    .attr("cy", function(d) { return y(d.elevation); })
-    .on("mouseover", function(d) {
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", .9);
-      tooltip.html(d.name + "<br/>" +
-          d3.format(",.2r")(d.miles) + " miles" + "<br/>" +
-          d3.format(",.2r")(d.elevation) + " feet")
-        .style("left", d3.event.pageX + "px")
-        .style("top", d3.event.pageY + "px")
-    })
-    .on("mouseout", function(d) {
-      tooltip.transition()
-        .duration(500)
-        .style("opacity", 0);
-    });
-
-  selection.exit().remove();
-
-
-  return selection;
-}
-
-var dots = updateDots(data);
-
-// Setup active events
-var dispatch = d3.dispatch("activeSection");
-
-dispatch.on('activeSection', function(index) {
-  data = _.map(data, function(d) { 
-    d.active = false;
-    return d;
+    data[index].active = true;
+    updateDots(data);
   });
-  data[index].active = true;
-  updateDots(data);
+
+  // Setup scrolling
+  graphScroll()
+      .graph(d3.selectAll('#graph'))
+      .container(d3.select('#scrollContainer'))
+    .sections(d3.selectAll('#sections > div'))
+    .on('active', function(i) {
+      dispatch.activeSection(i);
+      console.log(i + 'th section active');
+    });
+
 });
-
-// Setup scrolling
-graphScroll()
-    .graph(d3.selectAll('#graph'))
-    .container(d3.select('#scrollContainer'))
-  .sections(d3.selectAll('#sections > div'))
-  .on('active', function(i) {
-    dispatch.activeSection(i);
-    console.log(i + 'th section active');
-  });
-
 </script>
+
