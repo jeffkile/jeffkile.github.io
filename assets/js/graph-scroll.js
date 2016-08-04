@@ -4,6 +4,7 @@ function graphScroll() {
       sections = d3.select('null'),
       i = NaN,
       sectionPos = [],
+      sectionSize = [],
       n,
       graph = d3.select('null'),
       isFixed = null,
@@ -14,12 +15,16 @@ function graphScroll() {
       eventId = Math.random()
 
   function reposition(){
+    console.log();
     var i1 = 0
+    var myPageYOffset = pageYOffset;
     sectionPos.forEach(function(d, i){
-      if (d < pageYOffset - containerStart + 300) i1 = i
+      if (d < myPageYOffset - containerStart + 100) i1 = i
     })
     i1 = Math.min(n - 1, i1)
     if (i != i1){
+      console.log(i1 + ", " + sectionPos[i1]);
+      console.log("offset", myPageYOffset - containerStart + 100);
       sections.classed('graph-scroll-active', function(d, i){ return i === i1 })
 
       dispatch.active(i1)
@@ -41,10 +46,17 @@ function graphScroll() {
 
   function resize(){
     sectionPos = []
-    var startPos
+    var firstRect; 
     sections.each(function(d, i){
-      if (!i) startPos = this.getBoundingClientRect().top
-      sectionPos.push(this.getBoundingClientRect().top -  startPos) })
+      if (!i) {
+        console.log("!i", i);
+        firstRect = this.getBoundingClientRect();
+      }
+      console.log(firstRect.top);
+      sectionPos.push(this.getBoundingClientRect().top - firstRect.top); // If the user is scrolling during resize
+    })
+
+    console.log(sectionPos);
 
     var containerBB = container.node().getBoundingClientRect()
     var graphBB = graph.node().getBoundingClientRect()
@@ -129,6 +141,9 @@ function graphScroll() {
 
     return rv
   }
+
+  rv.resize = resize;
+  rv.reposition = reposition;
 
   d3.rebind(rv, dispatch, "on")
 
