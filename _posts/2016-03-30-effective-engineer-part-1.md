@@ -5,6 +5,7 @@ navLocation: top
 title:  "The Effective Engineer - Summary Part 1"
 date:  2016-03-30 
 categories: programming engineering software 
+tags: programming engineering software 
 ---
 
 

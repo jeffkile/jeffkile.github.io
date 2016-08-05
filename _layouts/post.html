@@ -4,10 +4,11 @@
 <div class="container">
   <div class="post">
     <h1><a href="{{page.url}}">{{page.title}}</a></h1>
+    <h4>{{page.sub_title}}</h4>
     <h3>{{page.date | date_to_string}}</h3>
     <div>Tags: 
-    {% for cat in page.categories %}
-    <button class="btn btn-default btn-xs">{{ cat }}</button>
+    {% for tag in page.tags%}
+    <button class="btn btn-default btn-xs">{{ tag }}</button>
     {% endfor %}
     </div>
     <div class="body">{{ content }}</div>

@@ -5,6 +5,7 @@ navLocation: top
 title: Streaming you DAW over Google Hangouts using Soundflower and Ladiocast
 date: 2015-07-20
 categories: music OSX Logic
+tags: music OSX Logic
 ---
 
 ---
