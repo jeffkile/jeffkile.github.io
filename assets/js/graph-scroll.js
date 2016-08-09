@@ -15,7 +15,6 @@ function graphScroll() {
       eventId = Math.random()
 
   function reposition(){
-    console.log();
     var i1 = 0
     var myPageYOffset = pageYOffset;
     sectionPos.forEach(function(d, i){
@@ -23,8 +22,6 @@ function graphScroll() {
     })
     i1 = Math.min(n - 1, i1)
     if (i != i1){
-      console.log(i1 + ", " + sectionPos[i1]);
-      console.log("offset", myPageYOffset - containerStart + 100);
       sections.classed('graph-scroll-active', function(d, i){ return i === i1 })
 
       dispatch.active(i1)
@@ -49,14 +46,10 @@ function graphScroll() {
     var firstRect; 
     sections.each(function(d, i){
       if (!i) {
-        console.log("!i", i);
         firstRect = this.getBoundingClientRect();
       }
-      console.log(firstRect.top);
       sectionPos.push(this.getBoundingClientRect().top - firstRect.top); // If the user is scrolling during resize
     })
-
-    console.log(sectionPos);
 
     var containerBB = container.node().getBoundingClientRect()
     var graphBB = graph.node().getBoundingClientRect()
