@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+    <script>
+      console.log("js");
+
+      function setup() {
+        let width = 5000;
+        let height = 760; 
+        // Create the canvas
+        createCanvas(width, height);
+
+        // Set colors
+        noStroke();
+        fill(204, 101, 192, 127);
+        //stroke(255, 255, 255);
+
+        fullscreen();
+        frameRate(60);
+      }
+
+      function cosDivideInputBy2(x) {
+        return Math.cos(x/2);
+      }
+      function sinDivideInputBy2(x) {
+        return Math.sin(x/2);
+      }
+      function sinTimesInputBy2(x) {
+        return Math.cos(x*2);
+      }
+
+      function turnTransparentAfter(x, level) {
+        const xNormalized = (x - Math.PI) / Math.PI;
+        const sigmoidValue = xNormalized / Math.sqrt(4 - (xNormalized * xNormalized));
+        const reNormalize = (1 + sigmoidValue);
+        if (sigmoidValue * level < 0) {
+          return 0;
+        }
+        if (sigmoidValue * level > level) {
+          return level;
+        }
+        return sigmoidValue * level;
+      }
+
+      let lineCount = 0;
+      let loopPosition = 0;
+      let loopPositionDelta = 0.01;
+      //let trigFn = Math.sin;
+      const totalCount = 16;
+      let waitCount = 0;
+      function draw() {
+        if (waitCount === 0) {
+          // Todo: maybe change alpha to use loop position instead of or in addition to line count
+          //makeWaves(Math.sin, lineCount, loopPosition, 25 + lineCount/20 * 150);
+          makeWaves(cosDivideInputBy2, -2 + lineCount, 192, lineCount, loopPosition, (loopPosition / 3) * 3 + turnTransparentAfter(loopPosition, 110));
+          makeWaves(sinDivideInputBy2, 12 - lineCount, 192, 2 + lineCount, loopPosition, (loopPosition / 3) * 5 +
+              turnTransparentAfter(loopPosition, 130));
+          makeWaves(Math.cos, 12 - 4 * ((lineCount + 2) % 3), 255, 1 + lineCount, loopPosition,
+              (loopPosition / 6) * 25 + lineCount/12 * 5 + turnTransparentAfter(loopPosition, 150));
+          //makeWaves(sinTimesInputBy2, 6 + lineCount / 2, 1 + lineCount, loopPosition, 25 + lineCount/20 * 150);
+
+          //makeWaves(Math.sin, a, a/20 * 255);
+          loopPosition = loopPosition + loopPositionDelta;
+          if (loopPosition >= 2 * Math.PI) {
+            if (lineCount < totalCount) {
+              loopPosition = 0;
+              lineCount = lineCount + 2;
+            } else {
+              waitCount++;
+              console.log("waitCount", waitCount);
+            }
+          }
+        } else {
+          waitCount++;
+          console.log("waitCount2", waitCount);
+          if (waitCount >= 1500) {
+            loopPosition = 0;
+            waitCount = 0;
+            // Clear the screen
+            document.getElementsByTagName("canvas")[0].getContext('2d').clearRect(0,0,width,height)
+            //clear();
+
+            // Pick which trig function to use
+            //trigFn = Math.random() > 0.5 ? Math.cos : Math.sin;
+            //trigFn = Math.sin;
+
+            // Start drawing again from the beginning
+            lineCount = 0;
+            // Everytime we restart drawing, draw with more fidelity
+            //loopPositionDelta = loopPositionDelta / 2;
+            //if (loopPositionDelta < 0.005) {
+              //loopPositionDelta = 0.1
+            //}
+          }
+        }
+      }
+
+      function makeWaves(trigFn, color, green, position, loopPosition, alpha) {
+        const red = color/12 * 255;
+        const blue = (12-color)/12 * 255;
+        fill(red, blue, green, alpha);
+        const d = 90;
+        const myHeight = height - 2 * d;
+        const myWidth = width / 2;
+        drawWaveCircle(trigFn, position, loopPosition, d, myHeight, myWidth);
+      }
+
+      function drawWaveCircle(trigFn, position, loopPosition, d, myHeight, myWidth) {
+        const trigVal = trigFn(loopPosition);
+
+        const xOffset = position/20 * myWidth;
+        const percentageOfLoop = loopPosition / (2 * Math.PI);
+        const x = xOffset + percentageOfLoop * myWidth/2;
+        const y = trigVal * myHeight/2 + myHeight/2;
+        const newD = d - percentageOfLoop * d;
+
+        ellipse(d + x, d + y, newD, newD);
+      }
+
+      function makeWavesWithLoop(trigFn, a, alpha) {
+        const red = a/10 * 255;
+        const blue = (10-a)/10 * 255;
+        fill(red, blue, 192, alpha);
+        const d = 70;
+        const myHeight = height - 2 * d;
+        for(let i=0; i < 2 * Math.PI; i = i + .01) {
+          const trigVal = trigFn(i);
+
+          const xOffsetByA = a/20 * width;
+          const percentageOfLoop = i / (2 * Math.PI);
+          const x = xOffsetByA + percentageOfLoop * width/2;
+          const y = trigVal * myHeight/2 + myHeight/2;
+          const newD = d - percentageOfLoop * d;
+          
+
+          ellipse(d + x, d + y, newD, newD);
+        }
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+
+
+
